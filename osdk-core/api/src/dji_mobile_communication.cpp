@@ -67,7 +67,7 @@ MobileCommunication::sendDataToMSDK(uint8_t* data, uint8_t len)
   }
   vehicle->protocolLayer->send(0, vehicle->getEncryption(),
                                OpenProtocolCMD::CMDSet::Activation::toMobile,
-                               data, len, 500, 1, NULL, 0);
+                               data, len, 500, 1, false, 0);
 }
 
 void

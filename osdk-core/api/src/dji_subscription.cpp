@@ -227,7 +227,7 @@ DataSubscription::verify(int timeout)
 
   protocol->send(2, vehicle->getEncryption(),
                  OpenProtocolCMD::CMDSet::Subscribe::versionMatch, &data,
-                 sizeof(data), 500, 2, NULL, 0);
+                 sizeof(data), 500, 2, false, 0);
 
   ack = *((ACK::ErrorCode*)getVehicle()->waitForACK(
     OpenProtocolCMD::CMDSet::Subscribe::versionMatch, timeout));
@@ -335,7 +335,7 @@ DataSubscription::startPackage(int packageID, int timeout)
 
   protocol->send(2, vehicle->getEncryption(),
                  OpenProtocolCMD::CMDSet::Subscribe::addPackage, buffer,
-                 bufferLength, 500, 1, NULL, 0);
+                 bufferLength, 500, 1, false, 0);
 
   ack = *((ACK::ErrorCode*)getVehicle()->waitForACK(
     OpenProtocolCMD::CMDSet::Subscribe::addPackage, timeout));
@@ -451,7 +451,7 @@ DataSubscription::removePackage(int packageID, int timeout)
 
   protocol->send(2, vehicle->getEncryption(),
                  OpenProtocolCMD::CMDSet::Subscribe::removePackage, &data,
-                 sizeof(data), 500, 1, NULL, 0);
+                 sizeof(data), 500, 1, false, 0);
 
   ack = *((ACK::ErrorCode*)getVehicle()->waitForACK(
     OpenProtocolCMD::CMDSet::Subscribe::removePackage, timeout));
@@ -549,7 +549,7 @@ DataSubscription::reset(int timeout)
   uint8_t data = 0;
   protocol->send(2, vehicle->getEncryption(),
                  OpenProtocolCMD::CMDSet::Subscribe::reset, &data,
-                 sizeof(data), 500, 1, NULL, 0);
+                 sizeof(data), 500, 1, false, 0);
   ACK::ErrorCode ack;
 
   ack = *((ACK::ErrorCode*)getVehicle()->waitForACK(
