@@ -20,7 +20,7 @@
 # *
 # *
 
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.5.0)
 project(djiosdk-core)
 
 # We want to use INTERFACE_LINK_LIBRARIES property to 
@@ -61,6 +61,7 @@ if (COVERAGE)
   set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} ${GCC_COVERAGE_COMPILE_FLAGS}")
   set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${GCC_COVERAGE_LINK_FLAGS}")
 endif ()
+
 
 if (CMAKE_BUILD_TYPE MATCHES "RelWithDebInfo")
   set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${COMMON_CXX_FLAGS} ${CMAKE_CXX_FLAGS_RELWITHDEBINFO}")
@@ -171,6 +172,7 @@ set_property(TARGET ${PROJECT_NAME}
 ################
 # Installation #
 ################
+
 
 set(INSTALL_LIB_DIR lib)
 set(INSTALL_BIN_DIR bin)
