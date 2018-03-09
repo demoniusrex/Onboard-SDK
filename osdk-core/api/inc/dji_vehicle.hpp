@@ -74,7 +74,7 @@ namespace DJI
 namespace OSDK
 {
 
-// static int callbackId;
+static int callbackId;
 
 /*! @brief A top-level encapsulation of a DJI drone/FC connected to your OES.
  *
