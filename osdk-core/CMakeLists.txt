@@ -40,15 +40,15 @@ set(CURRENT_CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake-modules)
 if (MSVC)
   include_directories(${Qt5Widgets_INCLUDES})
   add_definitions(${Qt5Widgets_DEFINITIONS})
-  set(COMMON_CXX_FLAGS "-std=c++11 ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
+  set(COMMON_CXX_FLAGS "-std=c++14 ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
 endif (MSVC)
 
 if (CMAKE_SYSTEM_NAME MATCHES Linux)
-  set(COMMON_CXX_FLAGS "-std=c++11 -pthread")
+  set(COMMON_CXX_FLAGS "-std=c++14 -pthread")
 endif ()
 
 if (CMAKE_SYSTEM_NAME MATCHES Darwin)
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -O0")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -g -O0")
 endif ()
 
 if (CMAKE_BUILD_TYPE MATCHES "Debug")
